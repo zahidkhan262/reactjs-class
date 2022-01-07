@@ -1,14 +1,19 @@
-import logo from './logo512.png';
 
-const Card = (props) => {
+
+const Card = ({ Counter, setCounter }) => {
+
+    const incr = () => {
+        setCounter(Counter + 1)
+    }
+    const decr = () => {
+
+        Counter > 0 ? setCounter(Counter - 1) : setCounter(Counter)
+
+    }
     return (
         <>
-            <div className="card">
-                <img src={logo} />
-                <div className="card-body">
-                    <h3>{props.data}</h3>
-                </div>
-            </div>
+            <button onClick={incr}>ChangeData</button>
+            <button onClick={decr}>ChangeData1</button>
         </>
     )
 }

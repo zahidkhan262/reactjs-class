@@ -1,18 +1,34 @@
 import './App.css';
-import Card from './Card'
+import react, { useState } from 'react';
+import Counter from './Counter';
+
 
 
 function App() {
-  return (
-    <div className="App">
-      <Card data="card-1" />
-      <Card data="card-2" />
-      <Card data="card-3" />
-      <Card data="card-4" />
-      <Card data="card-5" />
+  const [currentData, setCurrentData] = useState(0);
+  const [inputData, setInputData] = useState({ firstname: "", lastname: "", })
 
-      <h1 style={{ color: "white", fontWeight: "800" }}>today is first react js class......</h1>
-    </div>
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInputData({ ...inputData, [name]: value, })
+  }
+
+
+
+  return (
+    <>
+      <Counter state={currentData} setCurrentData={setCurrentData} />
+
+
+      <div className='field'>
+        <h1>{inputData}</h1>
+        <h1>{inputData}</h1>
+        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.firstname} name="firstname" />
+        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.lastname} name="lastname" />
+      </div>
+    </>
   );
 }
 
