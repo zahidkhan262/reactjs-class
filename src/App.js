@@ -1,33 +1,68 @@
 import './App.css';
-import react, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Counter from './Counter';
-
+import FirstClass from './components/FirstClass';
 
 
 function App() {
+
+
+  const initialValue = { firstname: "", lastname: "" }
   const [currentData, setCurrentData] = useState(0);
-  const [inputData, setInputData] = useState({ firstname: "", lastname: "", })
+  const [inputData, setInputData] = useState(initialValue);
+  const [data, setData] = useState([]);
+
+  const [jsonData, setJsonData] = useState([])
+
+  const [showPass, setShowPass] = useState(false);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos").then((resolve) => {
+      resolve.json().then((data) => {
+        console.log(data)
+        setJsonData(data)
+      })
+    })
+  }, [])
 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setInputData({ ...inputData, [name]: value, })
+    setInputData({ ...inputData, [name]: value });
+    console.log(inputData)
   }
-
-
+  const submitData = () => {
+    setData(inputData);
+    setInputData(initialValue)
+  }
 
   return (
     <>
       <Counter state={currentData} setCurrentData={setCurrentData} />
-
+      <ul>
+        <li>FirstName:{data.firstname}</li>
+        <li>LastName:{data.lastname}</li>
+      </ul>
+      {jsonData.map((item) => {
+        return (
+          <>
+            <li>{item.id}</li>
+            <li>{item.title}</li>
+          </>
+        )
+      })}
 
       <div className='field'>
-        <h1>{inputData}</h1>
-        <h1>{inputData}</h1>
-        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.firstname} name="firstname" />
-        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.lastname} name="lastname" />
+        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.firstname} name='firstname' />
+        <input type="text" placeholder='enter text' onChange={handleChange} value={inputData.lastname} name='lastname' />
+        <input type={!showPass ? "password" : "text"} />
+        <button onClick={() => setShowPass(!showPass)}>showpass</button>
+        <button onClick={submitData}>Submit</button>
       </div>
+
+      <FirstClass />
+
+
     </>
   );
 }
