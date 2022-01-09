@@ -1,20 +1,28 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
 
-export class FirstClass extends Component {
-    constructor() {
-        super()
-        this.state = {
-            showPas: false,
-        }
-    }
-    render() {
-        return (
-            <>
-                <input type={!this.state.showPas ? "password" : "text"} />
-                <button onClick={() => this.setState({ showPas: !this.state.showPas })} >hideshow</button>
-            </>
-        )
-    }
+import womenData from './womenData/womenData.json';
+
+
+const FirstClass = () => {
+
+    const [api, setApi] = useState(womenData);
+
+
+
+    return (
+        <>
+
+            {api.map((data, index) => {
+                return (
+                    <>
+                        <img src={data.path} alt={data.path} />
+                        <p>{data.price}</p>
+                    </>
+                )
+            })}
+
+        </>
+    )
 }
 
-export default FirstClass
+export default FirstClass;
