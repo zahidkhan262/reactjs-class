@@ -16,3 +16,9 @@
     width: 100px;
     font-weight: normal;
 }
+.active{
+    color: red;
+}
+a{
+    text-decoration: none;
+}

@@ -1,8 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Counter from './Counter';
-import FirstClass from './components/FirstClass';
-
+import Header from './components/routingComponent/Header';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/routingComponent/Home';
+import About from './components/routingComponent/About';
+import Contact from './components/routingComponent/Contact';
 
 function App() {
 
@@ -23,7 +26,9 @@ function App() {
         setJsonData(data)
       })
     })
-  }, [])
+  }, []);
+
+
 
 
 
@@ -40,6 +45,15 @@ function App() {
 
   return (
     <>
+
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+
       <Counter state={currentData} setCurrentData={setCurrentData} />
       <ul>
         <li>FirstName:{data.firstname}</li>
@@ -61,9 +75,6 @@ function App() {
         <button onClick={() => setShowPass(!showPass)}>showpass</button>
         <button onClick={submitData}>Submit</button>
       </div>
-
-      <FirstClass />
-
 
     </>
   );
