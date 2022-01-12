@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/routingComponent/Home';
 import About from './components/routingComponent/About';
 import Contact from './components/routingComponent/Contact';
+import Services from './components/routingComponent/Services';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
 
 
