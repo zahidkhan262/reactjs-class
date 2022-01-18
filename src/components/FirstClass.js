@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-import womenData from './womenData/womenData.json';
+import jsonData from './womenData/womenData.json';
 
 
 const FirstClass = () => {
 
-    const [api, setApi] = useState(womenData);
+    const [api, setApi] = useState(jsonData);
 
 
 
     return (
         <>
 
-            {api.map((data, index) => {
+            {api.map((data) => {
                 return (
                     <>
                         <img src={data.path} alt={data.path} />
