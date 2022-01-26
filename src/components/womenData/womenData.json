@@ -1,5 +1,6 @@
 [
 {"name":"Blue Colored Printed Shirt", "price":1450, "gender":"male", "size":"XL", "path":"img (20).jpg","color":"Blue", "brand":"Lee Cooper"},
+{"name":"Blue Colored Printed Shirt", "price":1450, "gender":"male", "size":"XL", "path":"img (20).jpg","color":"Blue", "brand":"Lee Cooper"},
 {"name":"White Plain Shirt", "price":2540, "gender":"female", "size":"M", "path":"img (21).jpg","color":"White", "brand":"J Hampstead"},
 {"name":"White and Blue Checkred Black", "price":2450, "gender":"female", "size":"L", "path":"img (22).jpg","color":"Blue White Black", "brand":"Allen Solley"},
 {"name":"Pink Pain Shirt", "price":3500, "gender":"female", "size":"L", "path":"img (23).jpg","color":"Pink", "brand":"Van Huesen"},

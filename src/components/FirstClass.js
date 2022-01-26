@@ -17,6 +17,8 @@ const FirstClass = () => {
                     <>
                         <img src={data.path} alt={data.path} />
                         <p>{data.price}</p>
+                        <p>{data.name}</p>
+                        <p>{data.gender}</p>
                     </>
                 )
             })}
