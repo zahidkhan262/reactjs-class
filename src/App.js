@@ -16,7 +16,9 @@ function App() {
   const [inputData, setInputData] = useState(initialValue);
   const [data, setData] = useState([]);
 
-  const [jsonData, setJsonData] = useState([])
+  const [jsonData, setJsonData] = useState([]);
+  
+const [productName, setProductName] =useState("")
 
   const [showPass, setShowPass] = useState(false);
 
@@ -28,7 +30,6 @@ function App() {
       })
     })
   }, []);
-
 
 
 
@@ -65,6 +66,15 @@ function App() {
       {jsonData.map((item) => {
         return (
           <>
+           <div className="input_field">
+                                <FormLabel>Organisation Name :</FormLabel>
+                                <select aria-label="Default select example" displayEmpty value={productName} onChange={(e)=>{setProductName(e.target.value)}}>
+                                    <option value="" disabled>Select Organisation</option>
+                                    <option value={1}>Products</option>
+                                    <option value={2}>Services</option>
+                                    <option value={3}>Both</option>
+                                </select>
+                            </div>
             <li>{item.id}</li>
             <li>{item.title}</li>
           </>
