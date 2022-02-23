@@ -74,6 +74,7 @@ const [productName, setProductName] =useState("")
                                     <option value={2}>Services</option>
                                     <option value={3}>Both</option>
                                 </select>
+<pre>{JSON.stringify(productName, null, 1)}</pre>
                             </div>
             <li>{item.id}</li>
             <li>{item.title}</li>
